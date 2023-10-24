@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Cocktail</title>
+</head>
+<body>
+    <div class="container">
+        <h1>  <i><b>Pick out our favourite cocktail</b></i> 👇🏻 </h1>
+    
+        <form action="/" id="form" class="form" method="POST">
+          <select name="type" class="form-select">
+            <option value="Ordinary_Drink" data-display="Select">Special Drink 🍵</option>
+            <option value="Cocktail">Cocktail 🍹</option>
+            <option value="Shake">Shake 🧋</option>
+            <option value="Cocoa">Cocoa 🍷</option>
+            <option value="Shot">Shot 🥂</option>
+            <option value="Homemade_Liqueur">Homemade Liqueur 🍾</option>
+            <option value="Beer">Beer 🍻</option>
+            <option value="soft_drink">Soft Drink 🧃</option>
+          </select>
+          <button type="submit" class="form-submit">Go</button>
+        </form>
+        <section id="cards" class="cards">
+          <%if (locals.data) {%>
+    
+            <article class="card-item">
+              <h2 class="card-activity">
+               " <%=data.strDrink%>"
+              </h2>
+              <div class="card-info">
+                <span class="card-type">
+                  <img src="<%= data.strDrinkThumb %>" alt="cock-img">
+                </span>
+              </div>
+            </article>
+    
+            <%}%>
+            
+    
+    
+              <%if (locals.error) {%>
+                <div id="tag-error" class="tag-error">
+                  <%=error%>
+                </div>
+                <%}%>
+        </section>
+      </div>
+      
+</body>
+</html>
